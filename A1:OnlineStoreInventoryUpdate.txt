@@ -1,0 +1,224 @@
+Last login: Wed Nov 18 08:24:34 on ttys000
+shouryasharma@Shouryas-MacBook-Air ~ % mongosh "mongodb+srv://cluster0.1iwynf2.mongodb.net/" --apiVersion 1 --username shouryano01_db_user
+
+Enter password: ****************   
+Current Mongosh Log ID:	6afd47b5266a43ef311bbdd6
+Connecting to:		mongodb+srv://<credentials>@cluster0.1iwynf2.mongodb.net/?appName=mongosh+2.14.0
+Using MongoDB:		8.0.37 (API Version 1)
+Using Mongosh:		2.14.0
+mongosh 2.14.2 is available, run brew upgrade mongosh to update
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+Atlas atlas-b8uoln-shard-0 [primary] test> show dbs
+crt2                    72.00 KiB
+job-applicant-tracker  512.00 KiB
+test                    28.00 KiB
+admin                         0 B
+local                         0 B
+Atlas atlas-b8uoln-shard-0 [primary] test> use showDB
+switched to db showDB
+Atlas atlas-b8uoln-shard-0 [primary] showDB> db.createCollection("products")
+{ ok: 1 }
+Atlas atlas-b8uoln-shard-0 [primary] showDB> show collections
+products
+Atlas atlas-b8uoln-shard-0 [primary] showDB> db.products.insertMany([])
+MongoInvalidArgumentError: Invalid BulkOperation, Batch cannot be empty
+Atlas atlas-b8uoln-shard-0 [primary] showDB> db.products.insertMany([])
+Atlas atlas-b8uoln-shard-0 [primary] showDB> 
+
+Atlas atlas-b8uoln-shard-0 [primary] showDB> 
+
+Atlas atlas-b8uoln-shard-0 [primary] showDB> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+Atlas atlas-b8uoln-shard-0 [primary] showDB> iclllll
+Atlas atlas-b8uoln-shard-0 [primary] showDB> db.products.insertMany([])
+MongoInvalidArgumentError: Invalid BulkOperation, Batch cannot be empty
+Atlas atlas-b8uoln-shard-0 [primary] showDB> db.products.insertMany([])
+Atlas atlas-b8uoln-shard-0 [primary] showDB> 
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+Atlas atlas-b8uoln-shard-0 [primary] showDB> use shopDB
+Atlas atlas-b8uoln-shard-0 [primary] showDB> use shopDB
+Atlas atlas-b8uoln-shard-0 [primary] showDB> use shopDB
+| 
+| db.products.insertMany([
+|   {
+|     _id: 1,
+|     name: "Wireless Mouse",
+|     category: "Accessories",
+|     price: 800,
+|     stock: 50,
+|     discontinued: false,
+|     oldCode: "WM-01"
+|   },
+|   {
+|     _id: 2,
+|     name: "Keyboard",
+
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> show db
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> show dbs
+crt2                    72.00 KiB
+job-applicant-tracker  512.00 KiB
+showDB                   8.00 KiB
+test                    28.00 KiB
+admin                         0 B
+local                         0 B
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.createCollection("products")
+{ ok: 1 }
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.insertMany([
+|   {
+|     _id: 1,
+|     name: "Wireless Mouse",
+|     category: "Accessories",
+|     price: 800,
+|     stock: 50,
+|     discontinued: false,
+|     oldCode: "WM-01"
+|   },
+|   {
+|     _id: 2,
+|     name: "Keyboard",
+|     category: "Accessories",
+|     price: 1500,
+|     stock: 30,
+|     discontinued: false,
+|     oldCode: "KB-02"
+|   },
+|   {
+|     _id: 3,
+|     name: "USB Cable",
+|     category: "Accessories",
+|     price: 200,
+|     stock: 100,
+|     discontinued: false
+|   },
+|   {
+|     _id: 4,
+|     name: "Laptop",
+|     category: "Computers",
+|     price: 55000,
+|     stock: 10,
+|     discontinued: false
+|   },
+|   {
+|     _id: 5,
+|     name: "Monitor",
+|     category: "Computers",
+|     price: 12000,
+|     stock: 15,
+|     discontinued: false
+|   },
+|   {
+|     _id: 6,
+|     name: "Old Floppy Drive",
+|     category: "Computers",
+|     price: 300,
+|     stock: 0,
+|     discontinued: true
+|   },
+|   {
+|     _id: 7,
+|     name: "Dial-up Modem",
+|     category: "Computers",
+|     price: 500,
+|     stock: 0,
+|     discontinued: true
+|   },
+|   {
+|     _id: 8,
+|     name: "CD Drive",
+|     category: "Computers",
+|     price: 400,
+|     stock: 0,
+|     discontinued: true
+|   }
+| ])
+{
+  acknowledged: true,
+  insertedIds: { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7, '7': 8 }
+}
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.updateOne(
+|   { name: "Keyboard" },
+|   { $set: { price: 1400 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.updateOne(
+|   { name: "Wireless Mouse" },
+|   { $inc: { stock: 25 } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.updateMany(
+|   {},
+|   { $unset: { oldCode: "" } }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 8,
+  modifiedCount: 2,
+  upsertedCount: 0
+}
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.replaceOne(
+|   { _id: 3 },
+|   {
+|     _id: 3,
+|     name: "USB-C Cable",
+|     category: "Accessories",
+|     price: 350,
+|     stock: 100,
+|     discontinued: false
+|   }
+| )
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.deleteOne(
+|   { name: "Old Floppy Drive" }
+| )
+{ acknowledged: true, deletedCount: 1 }
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.deleteMany(
+|   { discontinued: true }
+| )
+{ acknowledged: true, deletedCount: 2 }
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> db.products.aggregate([
+|   {
+|     $match: {
+|       price: { $gte: 500 }
+|     }
+|   },
+|   {
+|     $group: {
+|       _id: "$category",
+|       totalStock: { $sum: "$stock" },
+|       avgPrice: { $avg: "$price" }
+|     }
+|   },
+|   {
+|     $sort: {
+|       totalStock: -1
+|     }
+|   }
+| ])
+[
+  { _id: 'Accessories', totalStock: 105, avgPrice: 1100 },
+  { _id: 'Computers', totalStock: 25, avgPrice: 33500 }
+]
+Atlas atlas-b8uoln-shard-0 [primary] shopDB> 
+
